@@ -4,7 +4,7 @@ package monkey.as3.util {
 	
 	/**
 	 * Utility Class: provides several methods to ease the manipulation of Display Objects and Display Object Containers
-	 * @author MatiX
+	 * @author matix
 	 */
 	public class DisplayObjectUtil {
 
@@ -60,12 +60,20 @@ package monkey.as3.util {
 			return getDescendantsByName_results;
 		}
 		
+		/**
+		 * Puts a display object in top of its siblings at his parent container.
+		 * @param	target the display object to bring to the front.
+		 */
 		public static function bringToFront(target:DisplayObject):void {
 			if (!target && !target.parent) return
 			target.parent.addChild(target);
 			//target.parent.swapChildren(target, target.parent.getChildAt(target.parent.numChildren - 1));
 		}
 		
+		/**
+		 * Puts a dsiplay object behind every other sibling in its parent container.
+		 * @param	target the display object to put behind its siblings.
+		 */
 		public static function sendToBack(target:DisplayObject):void {
 			if (!target && !target.parent) return
 			target.parent.addChildAt(target, 0);
